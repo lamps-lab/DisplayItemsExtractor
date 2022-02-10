@@ -1,5 +1,5 @@
-import json
 import re
+import common
 
 
 def read_claims(read_file):
@@ -21,20 +21,16 @@ def find_figures_ref(text):
     return count_of_fig + count_of_figures
 
 
-# input the claim in a text file
-text = read_claims("input/claims/FromGROBID/Alcacer_AmJournSocio_2013_kZgG.txt")
-number_of_table_ref_in_the_claim = find_tables_ref(text)
-number_of_figure_ref_in_the_claim = find_figures_ref(text)
+def get_display_items_from_claim(filename):
+    text = read_claims(filename)
+    number_of_table_ref_in_the_claim = find_tables_ref(text)
+    number_of_figure_ref_in_the_claim = find_figures_ref(text)
+    return number_of_table_ref_in_the_claim, number_of_figure_ref_in_the_claim
 
-json_output = {
-    "tables": number_of_table_ref_in_the_claim,
-    "figures": number_of_figure_ref_in_the_claim
-}
 
-# Serializing json
-json_object = json.dumps(json_output, indent=4)
-
-# Writing to sample.json
-with open("./output/claim_level/output.json", "w") as outfile:
-    outfile.write(json_object)
-
+if __name__ == "__main__":
+    # input the claim in a text file
+    input_file = "./input/claims/FromGROBID/Alcacer_AmJournSocio_2013_kZgG.txt"
+    output_file = "./output/claim_level/output.json"
+    number_of_tables, number_of_figures = get_display_items_from_claim(input_file)
+    common.write_to_json(number_of_tables, number_of_figures, output_file)
