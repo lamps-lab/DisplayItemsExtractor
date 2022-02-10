@@ -1,4 +1,4 @@
-# Display Item Extractor
+# Display Items Extractor
 
 The display items of a scholarly document are the figures and tables in that document. This code repository contains libraries and applications of Python programs that extract figures and tables. 
 
