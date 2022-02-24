@@ -6,8 +6,11 @@ import re
 
 def find_number_of_figures_in_paper(text):
     # find the number of figures in the paper (get the largest figure number referred in the text)
-    figure_refs = re.findall('fig [0-9]', text, flags=re.IGNORECASE) + \
-                   re.findall('figure [0-9]', text, flags=re.IGNORECASE)
+    figure_refs = re.findall('fig [0-9]', text, flags=re.IGNORECASE) \
+                  + re.findall('fig. [0-9]', text, flags=re.IGNORECASE) \
+                  + re.findall('fig.[0-9]', text, flags=re.IGNORECASE) \
+                  + re.findall('figure [0-9]', text, flags=re.IGNORECASE)
+
     figure_numbers = []
     for figure_ref in figure_refs:
         figure_numbers.append(figure_ref.split(" ")[1])

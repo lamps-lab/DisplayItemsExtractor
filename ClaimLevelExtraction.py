@@ -14,11 +14,14 @@ def find_tables_ref(text):
 
 
 def find_figures_ref(text):
-    # find all the appearances of the word "fig" and/or "figures" followed by a space and an integer regardless
-    # of the case
-    count_of_fig = len(re.findall('fig [0-9]', text, flags=re.IGNORECASE))
-    count_of_figures = len(re.findall('figure [0-9]', text, flags=re.IGNORECASE))
-    return count_of_fig + count_of_figures
+    # find all the appearances of the word "fig" and/or "fig." and/or "figures" followed by a space and/or
+    # an integer regardless of the case
+    count_of_figures_pattern_1 = len(re.findall('fig [0-9]', text, flags=re.IGNORECASE))
+    count_of_figures_pattern_2 = len(re.findall('fig. [0-9]', text, flags=re.IGNORECASE))
+    count_of_figures_pattern_3 = len(re.findall('fig.[0-9]', text, flags=re.IGNORECASE))
+    count_of_figures_pattern_4 = len(re.findall('figure [0-9]', text, flags=re.IGNORECASE))
+    return (count_of_figures_pattern_1 + count_of_figures_pattern_2
+            + count_of_figures_pattern_3 + count_of_figures_pattern_4)
 
 
 def get_display_items_from_claim(filename):
