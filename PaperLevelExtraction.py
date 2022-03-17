@@ -17,7 +17,7 @@ def find_number_of_tables_in_paper(text):
                  + re.findall('tables [0-9]+-[0-9]+', text, flags=re.IGNORECASE) \
                  + re.findall('tables [0-9]+[a-z]* and [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
                  + re.findall('table\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                 + re.findall('tables\xa0[0-9]+ and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE)
+                 + re.findall('tables\xa0[0-9]+[a-z]* and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE)
 
     # Extract the tables numbered with roman numbers (Table II)
     tables_with_roman_numbers = re.findall('Table (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
@@ -27,7 +27,6 @@ def find_number_of_tables_in_paper(text):
     # Convert the roman numbers to integers
     for roman_number_tuple in tables_with_roman_numbers:
         roman_number = roman_number_tuple[0] + roman_number_tuple[1]
-        print(roman_number)
         roman = {'I': 1, 'V': 5, 'X': 10, 'IV': 4, 'IX': 9}
         i = 0
         num = 0
@@ -87,30 +86,62 @@ def find_number_of_figures_in_paper(text):
     """
         Given the text extracted from the paper, this method will find the number of figures in the text and return
     """
-    figure_refs = re.findall('fig [0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('fig. [0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('fig.[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figure [0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figs. [0-9]+ and [0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figs [0-9]+ and [0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figures [0-9]+ and [0-9]+', text, flags=re.IGNORECASE) \
+    # Extract the figures numbered with numbers (Fig. 1, Fig.1, Fig 1, Figure 1,
+    #                                            Fig. 1a, Fig.1a, Fig 1a, Figure 1a,
+    #                                            Figs. 1-3, Figs 1-3, Figures 1-3,
+    #                                            Figs. 1 and 2, Figs 1 and 2, Figures 1 and 2)
+    figure_refs = re.findall('fig [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('fig. [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('fig.[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('figure [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('figs. [0-9]+[a-z]* and [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('figs [0-9]+[a-z]* and [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('figures [0-9]+[a-z]* and [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
                   + re.findall('figures [0-9]+–[0-9]+', text, flags=re.IGNORECASE) \
                   + re.findall('figs. [0-9]+–[0-9]+', text, flags=re.IGNORECASE) \
                   + re.findall('figs [0-9]+–[0-9]+', text, flags=re.IGNORECASE) \
                   + re.findall('figures [0-9]+-[0-9]+', text, flags=re.IGNORECASE) \
                   + re.findall('figs. [0-9]+-[0-9]+', text, flags=re.IGNORECASE) \
                   + re.findall('figs [0-9]+-[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('fig\xa0[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('fig.\xa0[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figure\xa0[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figs.\xa0[0-9]+ and\xa0[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figs\xa0[0-9]+ and\xa0[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figures\xa0[0-9]+ and\xa0[0-9]+', text, flags=re.IGNORECASE)
+                  + re.findall('fig\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('fig.\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('figure\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('figs.\xa0[0-9]+[a-z]* and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('figs\xa0[0-9]+[a-z]* and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                  + re.findall('figures\xa0[0-9]+[a-z]* and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE)
+
+    # Extract the figures numbered with roman numbers (Fig. II, Fig II, Figure II)
+    tables_with_roman_numbers = re.findall('Figure (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('figure (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('FIGURE (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('Fig (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('fig (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('FIG (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('Fig. (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('fig. (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('FIG. (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('Fig.(X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('fig.(X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
+                                + re.findall('FIG.(X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
 
     figure_numbers = []
+    additional_figures_numbers_with_alpha_chars = []
 
-    print(figure_refs)
-
+    # Convert the roman numbers to integers
+    for roman_number_tuple in tables_with_roman_numbers:
+        roman_number = roman_number_tuple[0] + roman_number_tuple[1]
+        roman = {'I': 1, 'V': 5, 'X': 10, 'IV': 4, 'IX': 9}
+        i = 0
+        num = 0
+        while i < len(roman_number):
+            if i + 1 < len(roman_number) and roman_number[i:i + 2] in roman:
+                num += roman[roman_number[i:i + 2]]
+                i += 2
+            else:
+                num += roman[roman_number[i]]
+                i += 1
+        figure_numbers.append(num)
+    
     for figure_ref in figure_refs:
         if 'figs' in figure_ref.lower() or 'figures' in figure_ref.lower():
             if '\xa0' in figure_ref:
@@ -119,7 +150,15 @@ def find_number_of_figures_in_paper(text):
                 figure = figure_ref.split(" ")
             # check for 'and'
             if "and" in figure:
-                figure_numbers.extend([figure[1], figure[3]])
+                contains_alpha_char = False
+                for fig_num in [figure[1], figure[3]]:
+                    for character in fig_num:
+                        if character.isalpha():
+                            contains_alpha_char = True
+                    if contains_alpha_char:
+                        additional_figures_numbers_with_alpha_chars.append(fig_num)
+                    else:
+                        figure_numbers.append(fig_num)
             # check for the long dash
             elif "–" in figure[1]:
                 figure_numbers.extend(figure[1].split("–"))
@@ -128,9 +167,17 @@ def find_number_of_figures_in_paper(text):
                 figure_numbers.extend(figure[1].split("-"))
         else:
             if '\xa0' in figure_ref:
-                figure_numbers.append(figure_ref.split("\xa0")[1])
+                figure = figure_ref.split("\xa0")
             else:
-                figure_numbers.append(figure_ref.split(" ")[1])
+                figure = figure_ref.split(" ")
+            contains_alpha_char = False
+            for character in figure[1]:
+                if character.isalpha():
+                    contains_alpha_char = True
+            if contains_alpha_char:
+                additional_figures_numbers_with_alpha_chars.append(figure[1])
+            else:
+                figure_numbers.append(figure[1])
 
     if len(figure_numbers) == 0:
         return 0
