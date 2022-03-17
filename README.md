@@ -30,8 +30,18 @@ The sample input can be found at input directory.
 
 ### Run Code
 * For paper level extractions:
-  1. Run `PaperLevelExtraction.py` file
-  2. Output json file can be found at 'output/paper_level/output.json'
+  1. Go to the `PaperLevelExtraction.py`
+  2. Add "ctf" or "grobid" as the `file_type`
+  3. Add the xml file path as the `input_file`, similar to
+     1. `./input/papers/grobid-tei-xml/FILENAME` (eg: `./input/papers/grobid-tei-xml/Aakvik_SocSciMed_2010_5lxl.xml`)
+     2. `./input/papers/XMLFileIntersection/FILENAME` (eg: `./input/papers/XMLFileIntersection/Abendroth_AmSocioRev_2014_G8Lr.xml`)
+  4. Output json file can be found at `output/paper_level/output.json`
+  5. output.json should look like
+       ```
+     {
+          "tables": 5,
+          "figures": 0
+     }
 
 * For claim level extractions:
   1. Run `ClaimLevelExtraction.py` file
