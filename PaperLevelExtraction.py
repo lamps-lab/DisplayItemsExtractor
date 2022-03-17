@@ -6,7 +6,7 @@ import re
 
 def find_number_of_tables_in_paper(text):
     """
-        Given the text extracted from the paper, this method will find the number of table in the text and return
+        Given the text extracted from the paper, this method will find the number of tables in the text and return
     """
     table_numbers = []
     additional_table_numbers_with_alpha_chars = []
@@ -220,9 +220,9 @@ def get_display_items_from_grobid_file(filename):
 if __name__ == "__main__":
     # input the xml file
     # file_type = "ctf"
-    # input_file = "./input/papers/XMLFileIntersection/Davies_JournConflictRes_2016_zVle.xml"
+    # input_file = "./input/papers/XMLFileIntersection/Abendroth_AmSocioRev_2014_G8Lr.xml"
     file_type = "grobid"
-    input_file = "./input/papers/grobid-tei-xml/Ibáñez_WorldDev_2010_5a5w.xml"
+    input_file = "./input/papers/grobid-tei-xml/Aakvik_SocSciMed_2010_5lxl.xml"
     output_file = "./output/paper_level/output.json"
 
     print("Processing " + input_file)
