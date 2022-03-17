@@ -37,7 +37,7 @@ def find_number_of_tables_in_paper(text):
             else:
                 num += roman[roman_number[i]]
                 i += 1
-        table_numbers.append(num)
+        table_numbers.append(str(num))
 
     for table_ref in table_refs:
         if '\xa0' in table_ref:
@@ -140,8 +140,9 @@ def find_number_of_figures_in_paper(text):
             else:
                 num += roman[roman_number[i]]
                 i += 1
-        figure_numbers.append(num)
-    
+
+        figure_numbers.append(str(num))
+
     for figure_ref in figure_refs:
         if 'figs' in figure_ref.lower() or 'figures' in figure_ref.lower():
             if '\xa0' in figure_ref:
@@ -178,9 +179,12 @@ def find_number_of_figures_in_paper(text):
                 additional_figures_numbers_with_alpha_chars.append(figure[1])
             else:
                 figure_numbers.append(figure[1])
-
-    if len(figure_numbers) == 0:
+    if len(figure_numbers) == 0 and len(additional_figures_numbers_with_alpha_chars) == 0:
         return 0
+    elif len(figure_numbers) == 0 and len(additional_figures_numbers_with_alpha_chars) != 0:
+        return len(set(additional_figures_numbers_with_alpha_chars))
+    elif len(figure_numbers) != 0 and len(additional_figures_numbers_with_alpha_chars) != 0:
+        return int(max(figure_numbers)) + len(set(additional_figures_numbers_with_alpha_chars))
     else:
         return int(max(figure_numbers))
 
@@ -269,7 +273,7 @@ if __name__ == "__main__":
     # file_type = "ctf"
     # input_file = "./input/papers/XMLFileIntersection/Abendroth_AmSocioRev_2014_G8Lr.xml"
     file_type = "grobid"
-    input_file = "./input/papers/grobid-tei-xml/Aakvik_SocSciMed_2010_5lxl.xml"
+    input_file = "./input/papers/grobid-tei-xml/Fujiwara_Econometrica_2015_BbLg.xml"
     output_file = "./output/paper_level/output.json"
 
     print("Processing " + input_file)
