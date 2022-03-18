@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Does variation in general practitioner (GP) practice matter for the length of sick leave? A multilevel analysis based on Norwegian GP-patient data</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2010-02-12">12 February 2010</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Arild</forename><surname>Aakvik</surname></persName>
+							<email>arild.aakvik@econ.uib.no</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Economics</orgName>
+								<orgName type="institution">University of Bergen</orgName>
+								<address>
+									<settlement>Bergen</settlement>
+									<country key="NO">Norway</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><roleName>Tor</roleName><forename type="first">Helge</forename><surname>Holmås</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Stein Rokkan Centre for Social Studies</orgName>
+								<address>
+									<settlement>Bergen</settlement>
+									<country key="NO">Norway</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">M</forename><surname>Kamrul Islam</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Economics</orgName>
+								<orgName type="institution">University of Bergen</orgName>
+								<address>
+									<settlement>Bergen</settlement>
+									<country key="NO">Norway</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Economics</orgName>
+								<orgName type="institution">University of Bergen</orgName>
+								<address>
+									<addrLine>Foss-winckels Gate 14</addrLine>
+									<settlement>Bergen</settlement>
+									<country key="NO">Norway</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Does variation in general practitioner (GP) practice matter for the length of sick leave? A multilevel analysis based on Norwegian GP-patient data</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2010-02-12">12 February 2010</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">A00A7D21C247975238C1F1481C6CE32E</idno>
+					<idno type="DOI">10.1016/j.socscimed.2010.01.031</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.0" ident="GROBID" when="2021-10-12T04:21+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Norway General practitioners (GPs) Length of sick leave Multilevel regression models Matched GP-patient data</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In Norway, as in many countries, the national insurance system is under economic stress from demographic change impacting on the pensions versus contributions balance, and an increasing number of disability and sickness benefit claimants. The general practitioner (GP) is responsible for assessing work capacity and issuing certificates for sick leave based on an evaluation of the patient. Although many studies have analyzed certified sickness absence and predictive factors, no studies assess its variation between patients, GPs or geographical areas within a multilevel framework. Using a rich Norwegian matched patient-GP data set and employing a multilevel random intercept model, the study attempts to disentangle patient, GP and municipality-level variation in the certified sickness absence length for Norwegian workers in 2003. We find that most observed patient and GP characteristics are significantly associated with the length of sick leave (LSL) and medical diagnosis is an important observed factor explaining certified sickness durations. However, 98% of the unexplained variation in the LSL is attributed to patient factors rather than influenced by variation in GP practice or differences in municipality-level characteristics. Our findings indicate that GPs practice variation does not matter much for the patients' LSL. Our results are compatible with a high degree of patient involvement in current general practice.</p><p>Based on this understanding one may infer that GPs play an advocate role for their patients in Norway, where the patients' own wishes are important when decisions are made.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>In Norway, as in many countries, the national insurance system is under economic stress from demographic change impacting on the pensions versus contributions balance, and an increasing number of disability and sickness benefit claimants. At a given working day around 6.5% (130,000 persons) of the workforce received sickness benefits from the National Insurance Scheme in 2008 <ref type="bibr">(NAV, 2008)</ref>. The number of persons on sickness benefits is high in Norway compared with other countries <ref type="bibr" target="#b4">(Bonato &amp; Lusinyan, 2004)</ref>.</p><p>Three institutional factors may partly explain the high number of persons on sickness benefits. First, Norway has generous sickness benefits, paying 100% of the current wage for up to a year. Second, the cost to employers of having workers on sick leave is low. Third, the general practitioners' (GPs) medical assessments are seldom scrutinized or evaluated by social insurance institutions. The Norwegian sickness system provides both cash benefits and medical benefits within the social insurance system. Employers pay cash benefits for the first 16 calendar days of sick leave, while the insurance system covers the wage loss from the 17th day up to a maximum of 52 weeks. After that period the patient is covered by a rehabilitation allowance or a disability pension. Self-certification can only be used within the first three days per spell (a total of 12 days in a 12 month period), and the employee must obtain a medical sickness certificate from a physician from the fourth day of the sickness spell. If a person works in an IA firm (firms with a special agreement with the government, in which one aim is to reduce sick leave), the self-certification is eight calendar days per spell (a total of 24 days in a 12 month period). For longer sick leaves, the employee and the employer must work out a rehabilitation plan within six weeks.</p><p>Norwegian general practice is a list-based system in which every inhabitant has the right to be in the care of a GP. GPs are allowed to have up to 2500 patients on their lists but may limit their lists below this level. The payment system (salary model) is a mix of a capitation fee and fee-for-service. The GP has a duty to prioritize inhabitants on his/her own patient list, and the GP scheme formalizes the relationship between the patient and doctor. GPs have the responsibility for planning and coordinating individualized preventive work, examination and treatment. They are also responsible for the patient's medical records, for updating medical histories and recording medicine use.</p><p>Previous studies identify that main predictive factors for the length of sick leave (LSL) are health (diagnosis), age, gender, family circumstances, economic incentives and restrictions in insurance legislation, type of work, social norms and the functioning of the labor market; see for instance, <ref type="bibr" target="#b25">Tellnes (1989)</ref>, <ref type="bibr" target="#b1">Alexanderson (1998)</ref>, <ref type="bibr" target="#b21">Shiels and Gabbay (2007)</ref>. In a review of the literature, So ¨derberg and <ref type="bibr">Alexanderson (2003)</ref> find that, given the same patient characteristics, there are large differences between GPs regarding the LSL they certified. In addition, there is a large degree of variation in different geographical regions such as municipalities ( <ref type="bibr">Arrelo ¨v, Borgquist, &amp; Sva ¨rdsudd, 2005;</ref><ref type="bibr">Mabeck &amp; Kragstrup, 1993)</ref>.</p><p>Medical diagnoses related to sickness absence are seldom available; see Feeney, <ref type="bibr" target="#b11">North, Head, Canner, and Marmot (1998)</ref>. The validity of the diagnoses can vary both because GPs do not always check what is the correct diagnosis or they want to protect the patient. The International Classification of Primary Care (ICPC) has been used to diagnose sickness absence episodes in Norway since 1992. In Norway, most sickness certificates are issued by GPs <ref type="bibr">(Brage, Bentsen, Bjerkedal, Nygård, &amp; Tellnes, 1996;</ref><ref type="bibr">Kristensen, Kelstrup, Kohlbau, &amp; Lassen, 1993)</ref>. Studies have shown that GPs are largely homogenous in terms of sickness certification especially for main diagnostic groups <ref type="bibr">(Britt, Angelis, &amp; Harris, 1998;</ref><ref type="bibr" target="#b13">Hofmans-Okkes &amp; Lamberts, 1996)</ref>.</p><p>GPs act as gatekeepers in the sickness benefit system in most western European countries, see for instance, Stone (1979), <ref type="bibr" target="#b18">Meershoek, Krumeich, and Vos (2007)</ref>, <ref type="bibr" target="#b24">Swartling, Peterson, and Wahlstro ¨m (2007)</ref>. GP responsibilities include assessing ability to work and issuing certificates for sick leave based on an evaluation of the patient. This means that they assess the existence of disease, decide whether the disease affects the ability to work, and weigh the pros and cons of sick leave. If sick leave is recommended, the GP must decide its duration and grade (full or part time), and measures to be taken during the absence such as treatment, rehabilitation, medication, contact with the employer, referrals and examinations <ref type="bibr">(So ¨derberg &amp; Alexanderson, 2003)</ref>. The GP must then do paperwork, such as issuing a certificate stating the medical diagnosis and the duration, and recommending activities or rehabilitation measures. Sometimes more information is required, which makes the evaluation of the patient and her situation complex and time consuming.</p><p>Though many studies have analyzed certified sick leave and predictive factors, very few studies focus on the LSL within a multilevel statistical model where variation in sickness absence length are analyzed at different levels (i.e. patient/GP/municipality) (So ¨derberg <ref type="bibr">&amp; Alexanderson, 2003)</ref>. To date, very little attention has been given to understanding the gatekeeping role of GPs and how much of the variation in sickness absence they can explain. Some degree of patient involvement is the rule in current general practice. To shed light on the issue using a rich administrative matched patient-GP data set, the paper aims to analyze factors explaining the variation in the length of certified sick leave and to disentangle patients, GPs and municipality sources of explained and unexplained (residual) variation in the certified sickness durations for the population of Norwegian workers.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Methods</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data and variables</head><p>This study uses a rich Norwegian administrative data set in the analysis of how individual LSL is affected by the individuals' personal characteristics, GP characteristics and municipality attributes. In the study, we merge data from the following data sources. First, information on individual sick leave, together with extensive individual background information, is taken from the FD-Trygd database in Statistics Norway (SSB). This database contains social insurance information on the entire Norwegian population. Second, data on GPs (e.g. age, gender, and patient list length) are collected from the Norwegian labor and welfare organization's (NAV's) regular GP database, where each patient is connected to one GP. Thus, by merging the two data sets we can explore extensive information on both GPs and their patients. Third, information on municipality-specific characteristics is obtained from Statistics Norway (SSB). Table <ref type="table" target="#tab_0">1</ref> provides a description of all variables used in the analysis.</p><p>The study uses pseudo-anonymous patients' and GPs' information and the research project of which the study is a part, has been approved by the Regional Committee for Medical and Health Research Ethics (REK).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The sample</head><p>From the FD-Trygd database we extracted information on all employees (423,022) who started a certified sick leave episode in 2003 compensated by the National Insurance Administration (NIA). Episodes ending in 2004 are included as long as they start in 2003.</p><p>After dropping individuals with missing information, our sample consists of 291,971 individuals and 353,611 sickness episodes. 243,896 individuals had one episode of sickness absence, 40,239 had two episodes, 6041 had three episodes, while 1795 individuals had more than three episodes. Each episode is treated as an independent occurrence in our empirical analysis.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Dependent variable</head><p>The length of sickness absence (LSL)</p><p>The FD-Trygd database contains all sickness absence compensated by the National Insurance Administration (NIA). In Norway, the first 16 working days of a sickness episode are compensated by the employer and sickness absence shorter than 17 days are not included in the database. The maximum duration of a sick leave episode is one year and the outcome measure in this study is the length of certified sickness absence (LSL) between 17 days and one year.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Independent variables</head><p>As seen in Table <ref type="table" target="#tab_0">1</ref>, as predictors of the LSL we have considered three types of observable attributes -patient, physician and municipality.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Patient characteristics</head><p>As patients observable attributes we consider patient sociodemographic characteristics (i.e. age, gender, income, education, household size and number of children in the household). Patient work-related characteristics, namely working hours per week, experience and the industry where the patient worked are also used as control variables. Moreover, as patient-level covariates we control for diagnosis (health) using dummy variables for 16 main chapters in ICPC (sickness absence due to social problems -chapter Z in ICPC -is not permitted to use in sickness certificates in Norway). We also include the total number of sickness days in 2002 (for those days covered by the NIA) as a control variable, since this information may be used as a proxy of past health status.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Physician characteristics</head><p>Physician-level attributes include age, gender and whether or not the GP is a specialist (in general medicine or community medicine).</p><p>To control for the workload of a GP, we include the GP's list length in our model. GPs are either paid a fixed wage or through a capitation scheme. This could influence the LSLs and we include a dummy variable for this in our regression model <ref type="bibr">(Aakvik &amp; Holmås, 2006)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Municipality characteristics</head><p>To control for observable area-level characteristics, we use municipality-level attributes as covariates. To control for municipalities' location we introduce three dummy variables considering whether patients live in a municipality that are located in large cities (e.g. Oslo, Bergen), or in urban areas or rural areas. The dummy variable for 'large cities' is used as a reference category in the regression model. We further include two municipality-level attributes -index mortality and index unemployment (see Table <ref type="table" target="#tab_0">1</ref>) as control variables.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Estimation strategy</head><p>Our statistical analysis anticipates that the patients' LSL is partly dependent on patients' attributes, physician (GP) characteristics administrative municipalities to which they belong. This hierarchical or nested structure in patients' LSL is modeled by separating the patient, GP and municipality sources of variation. To account for the clustering/nested at higher levels (i.e. individuals nested within GP and municipalities) in our modeling approach, we assume that the coefficients for all three levels are fixed but that the intercept is varying (i.e. assuming random-intercept model) <ref type="bibr">(Cameron &amp; Trivedi, 2005;</ref><ref type="bibr" target="#b19">Rabe-Hesketh &amp; Skrondal, 2008)</ref>. We may write the following multilinear model:</p><formula xml:id="formula_0">y igm ¼ bX igm þ gY gm þ dZ m þ w m þ u ig þ e igm ;</formula><p>where y igm represents the LSL (the dependent variable), which is to a vector of patient-level explanatory variables X, a vector of GP characteristics and a vector of municipality characteristics Z.</p><p>In this specification the overall error term v igm is decomposed intow m þ u ig þ e igm , where w m the random error term for the municipality, u ig denotes the nested effect of individual within the gth GP and e igm the remaining disturbance term (error term ith patient treated by the GP within the mth municipality). The error terms are assumed to be iid with mean zero.</p><p>The ability to partition variance at different levels (e.g., municipality, GP and patient) is a unique feature of multilevel regression analysis. The model is useful for estimation and quantification of the relative importance of individual and higher-level effects (e.g. in our case patients nested within GPs) and for understanding patient/GP/municipality variations in the length of sick leave &amp; Bosker, 1999). In our 3-level multilevel regression where Level-1 contains 291,971 patients (in total 353,611 episodes) nested within 3709 GP at level-2, and GPs are nested within 415 municipalities at level-3. Because the dependent variable is continuous, a multilevel linear model is used.</p><p>To examine the variations in LSL explained by different levels, ideally four sequential models could be estimated. The first considers a null (empty) model of patients (level 1) nested within GP (level 2) and GP nested within municipalities (level 3) with no in the fixed part and only the intercepts in the random part of the model (Model I). This model is used as a baseline for comparing the size of higher levels variations (e.g. GP variations) in the patients' LSL in subsequent models. In the second model we add all the patients' characteristics in the fixed part of the model (Model II). Model III is the same as model II, but also adds GP characteristics in the fixed part of the model. Controlling for patient characteristics, this model potentially examines the effect of GP-level predicon the patients' length of sick leave (fixed part). In the random part of the model the practice variation of the GPs certification on length of sick leave is estimated before and after taking into account the effect of the GP-level observable characteristics. Finally, the fourth model not only includes all patient and GP-level predictors but also add municipality-level observable characterisin the fixed part of the model. In the random part of the results, this model facilitate us to examine the extent to which municipal observable characteristics explains municipality-level differences in the patients' length of sick leave (Model IV).</p><p>To illustrate the relevance of the GP or municipality differences (variances) for understanding the patients' differences in the LSL, we calculate the intra class-correlation (ICC). The intra-class (cluster) can be expressed as the proportion of the patient in the LSL (i.e., patient-level variance) that is at the GP or For example, the proportion of the patient-level 2</p><formula xml:id="formula_1">M þ s 2 G þ s 2 i Þ that is at the GP-level 2 G Þ can be calcu- by the general formula as ICC ¼ s 2 G =ðs 2 M þ s 2 G þ s 2 i Þ.</formula><p>The closer the ICC is to 0%, the smaller proportion of the total variance is at the GP or the municipality-level, implying a low relevance of the GP or municipality factors for understanding patient disparities in the LSL. this strategy, in particular, we are able to quantify how much of GP differences in the LSLs are explained by differences in the composition of the GP or municipality, and how much of GP or municipality differences are explained by the GP charor the municipal-level of attributes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Results</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Descriptive analysis</head><p>Table <ref type="table" target="#tab_1">2</ref> provides descriptive statistics for the variables used in the statistical models. We first notice that the data consist of considerably more females (215,087) than males (138,524). The age is 42 years for both the genders. We observe that the LSL is just over 62 days. There are only small gender males have about two days longer sick leave than females. Many of the patients in our sample have not been on sick in 2002; therefore, the average total number of sick days in 2002 is around 19 days for our group of patients.</p><p>For all sickness episodes, more than 60% of sickness absence is within the diagnosis groups 'Musculoskeletal' and 'Psychological' problems (two main chapters in ICPC). Notice that nearly half of the males' certified sickness absence is reported due to musculoskeletal related health problems, whereas, for the same broad diagnosis group, the proportion is 40% for the females. Psychological problems are more prevalent among females than males (17% versus 15%), whereas for other broad diagnoses groups (i.e. main chapters in ICPC) no noteworthy gender difference is observed (see 2).</p><p>GP characteristics, as seen in Table <ref type="table" target="#tab_1">2</ref>, the average age the GPs is around 48 years and 72% of patients' sickness leave is by the male GPs. The average list length of the GPs is 1335 and around 6% of the GPs are on fixed salary. Concerning municipality attributes, roughly 58% of the patients live in municipalities located in large cities (e.g. Oslo and Bergen), 29% in other urban and the rest live in municipalities situated in rural areas. Average index mortality and index unemployment are found to be 5.6 and 6.1, respectively.</p><p>3 illustrates the average LSL per 16 main chapters in ICPC. In 10 out of the 16 main chapters, the average LSL are higher for the males than females. The highest average LSL is observed for the related diagnosis (86 days) and the lowest LSL is found under diagnosis (29 days). In both cases the LSLs are higher for males than females. For the two main chapters in ICPC (i.e. and 'Psychological'), the average LSL is around 66 76 days, respectively. There are only minor gender differences in LSL for these diagnoses. In connection to the 'Musculoskeletal' group the average LSL is higher for females (69 days versus days), whereas for the 'Psychological' group the average LSL is for the males than females (79 days versus 74 days).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Analytical results</head><p>We first present the fixed-part results followed by the randompart results of the random intercept model. Note that, because of minor changes in the fixed part results based on models II and III, we do not present the results for these models in 4. Instead, we discuss the model with all three-level predictors (Model IV) in the fixed part of the results. In addition to presenting the full model, we also report results for male and female patients separately.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>results</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Patient-level characteristics</head><p>The effects of the patient-level covariates on the LSL are prein Table <ref type="table" target="#tab_3">4</ref>, which shows that most of the patient-level predictors are significantly associated with the LSL at the 1% In particular, the results show that age is positively and significantly associated the LSL for both genders. The effect of age is higher for males than for females. As expected, different socioeconomic variables, such as education, income, work experience, and working are negatively and significantly associated with the LSL, and the effects are stronger for males than females. patients using 'General unspecified (A)' ICPC as the base category, we find that the LSL is significantly longer for 10 of the ICPC chapters, and significantly shorter for 5 of the ICPC categories (i.e. 'Digestive (D)', 'Eye (E)', 'Respiratory (R)', 'Skin (S)' and 'Urology'), see Table <ref type="table" target="#tab_3">4</ref> for more details. Relative to a patient working in manufacturing industry, LSLs are significantly longer for patients working agriculture, construction, wholesale and retail or financial sectors. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Physician-level attributes</head><p>As seen in Table <ref type="table" target="#tab_3">4</ref>, only few of the GP-level attributes are significantly associated with the patients' LSL. A fixed-salary GP with a longer list length issues shorter certificates than their It is interesting to note that male GPs certify shorter LSLs for male patients, on average more than one day shorter than for their female counterparts. No significant difference in the LSL is observed for the female patients when the sick leave certificate is issued by a male physician. Older GPs seem to issue longer <ref type="bibr">(shorter)</ref> for the males (females) and GPs with specialization (in general medicine or community medicine) to issue longer LSL than with specialization for both male and female patients; however, none of these associations are found to be significantly from zero.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Municipality-level characteristics</head><p>None of the municipality-level attributes are significantly associated with patients' LSL. In comparison with a municipality in a large city, a female patient's LSL is significantly around days shorter if she lives in a municipality located in rural area; however, this municipality characteristic is not significantly associated with the male patients' LSL. Municipality-level 'index mortality' seems positively and significantly related with male patients' LSL but insignificantly related with the females' LSL.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>results</head><p>To what extent is GP practice variation or municipality variation for the patients' LSL? Table <ref type="table">5</ref> describes the random part of the results which gives us indications of this question. The null model with no predictors/variables (Model-I) shows a significant variation in the LSL between GPs 2 G ¼ 36:58Þ and municipalities ðs 2 M ¼ 57:01Þ all patients. After controlling for patients' observable attributes (model-II), an insignificant decrease in the variation between GPs 2 G ¼ 35:4Þ is observed, and the variation decreases at the municipality and patient-level. After accounting for the patients <ref type="bibr">' and GPs' characteristics (model-III)</ref>, the variation between GPs and municipalities further decreases slightly. Finally, after controlling for patients', physicians' and municipality observable attributes (Table <ref type="table">5</ref>, model-IV), between-variation reduced negligibly 2 G ¼ 35:2Þ and betweenvariation is found to be almost constant 2 M ¼ 48:2Þ, the variability is still significant. Similar findings changes in the variations from model to model are also observed for the males and females.</p><p>To quantify the importance of variation in GP practice on patients' LSL, intra-class (cluster) correlation (ICC) statistics can be</p><p>In the random part of our results (in the null model), the ICC is 0.61% (Model I) for the GP level and 0.95% at the municipality level. After including patients' and GPs' socio-demographic predictors and municipality-level observable characteristics (Model IV) the is found to be almost constant for the GP level (0.62%) and it is slightly decreased at the municipality level (0.85%). This result suggests that variation in the patients' LSL is mainly affected by patient individual attributes (more than 98%) rather than influenced by the GP-level residual variation or differences in the municipality-level characteristics where they live.</p><p>Although many studies have analyzed certified sick leave and predictive factors, there is still little known about the factors explaining the variation in the length of certified sick leave and the contributions to the variation from patient, GP or area where they live. This paper is one of the first that uses merged administrative data on patients and GPs to analyze how observed and unobserved factors influence the duration of LSL. Our multilevel linear random intercept model allows us to disentangle patient, GP and municipality sources of variation in LSL for the Norwegian population of workers in 2003.</p><p>We find that few of the observed GP characteristics (list length, wage scheme) contribute significantly to the variation in length of Patient factors contribute to a much larger extent than GP or municipality factors. Our results also show that more than 98% of the residual variation in the length of sickness absenteeism is attributed to patient factors rather than influences of random variation in GP practice or differences in municipality-level characteristics. Our results indicate that differences across patients certified in different practices are not as important as characteristics shared by the total group of patients itself, both in terms of and unobserved differences. Previous studies report that GPs face many dilemmas in deciding the LSL <ref type="bibr" target="#b10">(Englund &amp; Sva ¨rdsudd, 2000;</ref><ref type="bibr">Hussey, Hoddinott, Wilson, Dowell, &amp; Barbour, 2004;</ref><ref type="bibr" target="#b27">Timpka, Hensing, &amp; 1995)</ref>, and there are sometimes conflicting interests between the patient and the GP. In particular, and Sva ¨rdsudd <ref type="bibr">(2000)</ref> find that even in cases where the GP would not recommend sick leave, a certificate is issued in 87% of cases, and concluds that patients appear to have a strong influence on sick practice. <ref type="bibr">Tellnes, Sandvik, and Moum (1990)</ref>, however, a large variation between doctors. Not only due to differences in the statistical approaches used in earlier studies, but also due to differences in the data, particularly differences in the construction of the dependent variable (i.e. the sickness absenteeism variable), for instance, duration/length versus prevalence of sickness absence, short versus long term sickness absence, single episode or all episodes, specific diagnosis or all diagnosis, etc, makes it difficult to compare the findings in the literature. Having in mind these complications, nevertheless, it may be useful to compare some of our findings (fixed-part results) with studies. The influence of GP gender on the issuing of sickness certificates has also been discussed earlier in the literature (So ¨derberg <ref type="bibr">&amp; Alexanderson, 2003)</ref>. The studies report different findings and no indicative conclusion has been found on the differential practice of and female GPs. In the regression model, we find that male certify a significantly lower LSL for male patients: on average more than one day shorter than their female counterparts. However, significant difference in LSL is found for female patients, whether the sick leave certificate is issued by a male or GP. <ref type="bibr">Shiels and Gabbay (2006)</ref> find that sickness certification of patients by male GPs are associated with increase prevalence of sickness certification in the intermediate sickness absence period (6-28 weeks). The authors, however, find no such significant association for longer sickness absence (28 weeks or more). In previous comparative study, <ref type="bibr">Tellnes et al. (1990)</ref> found that older physicians issued certificates of longer durations. Although descriptive statistics confirms this result in our study (not shown we do not find any significant influence of GPs age on LSL in the regression model reported in Table <ref type="table" target="#tab_3">4</ref>.</p><p>Existing studies on GP practice variation use simple statistical analyses and there is no study that disentangles patient, GP and municipality sources of variation in the LSL in a multilevel framework. Hence, it is not possible to compare our random-part results with other studies. Nevertheless, using a much simpler model, <ref type="bibr">Shiels and Gabbay (2006)</ref> find that GP effects were much smaller than anticipated, which is in line with our results. It is also hypothesized that GP practice variation in sick leaves may be influenced by area or structural-level factors <ref type="bibr">(So ¨derberg &amp; Alexanderson, 2003)</ref>. Using a simple statistical analysis, <ref type="bibr">Arrelo ¨v et al. (2005)</ref> find a large variation of the length of the sick-leave certificates and sick-leave episodes between counties and between communities in Sweden. However, using a multilevel framework, we find a negligible (less 1%) unexplained practice variation in the length of sickness absenteeism at the municipality level. Our finding also supported by other studies that use Scandinavian data to assess importance of area variations for health measures. In particular, using a multilevel method, <ref type="bibr">Islam et al. (2006)</ref> conclude that the variation in health status is mainly affected by individual factors (more than 98%) rather than characteristics in Sweden. we believe our analysis offers many advantages compared with many other studies, our study is not without limitations. Using a large Norwegian register database we have investigated a wide range of patient and GP attributes potentially associated with LSL. However, this study uses a cross-sectional method and hence is limited in terms of the potential to establish causal relationships. Our study used medical diagnoses based on a common classification system, ICPC. Question could be raised about the validity of GP diagnoses as one could suspect that GPs may intentionally state incorrect diagnosis from convenience or to protect the patient.</p><p>ICPC is a well known classification system in Norway, and is used since 1992. In particular, <ref type="bibr">Britt et al. (1998)</ref> show that GPs to a large degree use the same ICPC diagnoses when presented to identical medical cases. GPs use of medical diagnoses on sickness may not always be correct. However, no clear financial incentives should induce GPs to misclassify diagnoses. <ref type="bibr" target="#b7">Bratberg, Gjesdal, and Maeland (2009)</ref> conclude that the diagnostic skills integrity of GPs are acceptable in Norway, at least for musculoskeletal impairments.</p><p>The implications of sickness certificates issued by non-GPs could another concern. <ref type="bibr" target="#b6">Brage and Kann (2006)</ref> have studied the in GP practice in Norway in 2003. They find that 79% of all leave certificates of more than 16 days are issued by the own GP. We do not know how many patients are certified another physician than their own GP. This might weaken the link between GP characteristics and the length of sick leave in our analysis. Residential mobility and the length of time that the patient is treated by the same GP is not observed in our data. Clustering of GP practices in the same municipality could also be concern <ref type="bibr">(Islam et al., 2006)</ref>. We do not adjust for potential variables in our analyses. Another concern could be that the low variance between GPs found in our models underestimates the true variance of the association between patients' characteristics, so the LSL is not constant across GPs. To allow the effect of patient-level covariates to vary across GPs, we could permit the slope of the patient-level to vary at the GP level. We have tried to estimate a random-coefficient model for different patient-level covariates (e.g. age, education and income); however, these models do not converge and we leave further exploration of this issue for future</p><p>We have also estimated a four-level model allowing for multiple spells within individuals. The results do not change much compared to a three-level model.</p><p>diagnosis is an important observed factor explaining certified LSL, and this feature is an intrinsic part of the GPs' role as</p><p>The GP is expected to act as a rationing agent on behalf of society and to adhere to national guidelines for prescriptions and referrals. At the same time the powers and rights of patients and the public have been strengthened through several organizational and legal reforms that encourage doctors to share decisions with patients. Previous studies have recognized that the gatekeeping role of GPs seems to be weak compared with the role of being a patient advocate <ref type="bibr" target="#b3">(Berg, Horstman, Plass, &amp; van Heusden, 2000;</ref><ref type="bibr" target="#b12">Ford, 1998;</ref><ref type="bibr">Hussey et al., 2004)</ref> and many GPs want to relinquish their gatekeeping role <ref type="bibr">(Hussey et al., 2004)</ref>.</p><p>find that 98% of the residual variation in the length of sickness absenteeism is attributed to individual factors rather than influenced by variation in GP practice or differences in municipality-level characteristics. Low variation across GPs may be understood by the that GPs play an advocate role for their patients in Norway, where patient involvement is strong. Based on our findings, one may that the gatekeeping role of Norwegian GPs is probably weak compared with their advocate role, although GPs are reasonably consistent in the way they certify patients. Patients appear to have a strong influence on sick leave practice. The immediate policy implications of our findings is that to reduce sickness absenteeism in Norway focus should be on the patients' health (diagnosis) and incentives that may influence the length of sickness absence. The GPs' gatekeeping role and its implication on the length of sickness should evaluated further by social insurance institutions.</p><p>Tor Helge Holmås has been supported through grants from the Research Council of Norway (project number 187912). The research has benefited from discussions with Espen Bratberg and Vaage. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1</head><label>1</label><figDesc>Variable description.</figDesc><table><row><cell>Variable name</cell><cell>Definition</cell></row><row><cell>Dependent variable</cell><cell></cell></row><row><cell>Sick days</cell><cell>Number of sick days covered by the National Insurance Administration (excluding spells shorter than 16 days)</cell></row><row><cell>Explanatory variables</cell><cell></cell></row><row><cell>Patient characteristics</cell><cell></cell></row><row><cell>Male</cell><cell>1 if patient is male, 0 otherwise</cell></row><row><cell>Age</cell><cell>Age of the patient</cell></row><row><cell>Years of education</cell><cell>Years of completed education</cell></row><row><cell>Income/1000</cell><cell>Labor income in 2002 (in 1000 NoK)</cell></row><row><cell>Individuals in the household</cell><cell>Number of individuals in the household</cell></row><row><cell>Number of children &lt; 6</cell><cell>Number of children younger than 6</cell></row><row><cell>Years of experience</cell><cell>Years with income above basic counting unit in pension system in 2002 (NoK 56861)</cell></row><row><cell>Sick days in 2002</cell><cell>Number of sick days in 2002</cell></row><row><cell>Working hours per week</cell><cell></cell></row><row><cell>Working hours 4-19</cell><cell>1 if patient is working 4-19 h per week, 0 otherwise</cell></row><row><cell>Working hours 20-29</cell><cell>1 if patient is working 20-29 h per week, 0 otherwise</cell></row><row><cell>Working hours 30þ</cell><cell>1 if patient is working 30 or more hours per week, 0 otherwise</cell></row><row><cell>Chapters in ICPC</cell><cell></cell></row><row><cell>General and unspecified (A)</cell><cell>1 if diagnosis within ICPC-chapter ''General and unspecified'' (A), 0 otherwise</cell></row><row><cell>Blood (B)</cell><cell></cell></row></table><note>1 if diagnosis within ICPC-chapter ''Blood, blood forming organs, lymphatics, spleen'' (B), 0 otherwise Digestive (D) 1 if diagnosis within ICPC-chapter ''Digestive'' (D), 0 otherwise Eye (F) 1 if diagnosis within ICPC-chapter ''Eye'' (F), 0 otherwise Ear (H) 1 if diagnosis within ICPC-chapter ''Ear'' (H), 0 otherwise Circulatory (K) 1 if diagnosis within ICPC-chapter ''Circulatory'' (K), 0 otherwise Musculoskeletal (L) 1 if diagnosis within ICPC-chapter ''Musculoskeletal'' (L), 0 otherwise Neurological (N) 1 if diagnosis within ICPC-chapter ''Neurological'' (N), 0 otherwise Psychological (P) 1 if diagnosis within ICPC-chapter ''Psychological'' (P), 0 otherwise Respiratory (R) 1 if diagnosis within ICPC-chapter ''Respiratory'' (R), 0 otherwise Skin (S) 1 if diagnosis within ICPC-chapter ''Skin'' (S), 0 otherwise Endocrine (T) 1 if diagnosis within ICPC-chapter ''Endocrine, metabolic and nutritional'' (T), 0 otherwise Urology (U) 1 if diagnosis within ICPC-chapter ''Urology'' (U), 0 otherwise Pregnancy (W) 1 if diagnosis within ICPC-chapter ''Pregnancy, childbirth, family planning'' (W), 0 otherwise Female genital system (X) 1 if diagnosis within ICPC-chapter ''Female genital system'' (X), 0 otherwise Male genital system (Y) 1 if diagnosis within ICPC-chapter ''Male genital system'' (Y), 0 otherwise Industry Agriculture 1 if patient is working in agriculture, forestry or fishing, 0 otherwise Mining 1 if patient is working in mining or electricity, gas and water supply, 0 otherwise Manufacturing 1 if patient is working in manufacturing, 0 otherwise Construction 1 if patient is working in construction, 0 otherwise Wholesale and retail 1 if patient is working in wholesale, retail trade, hotel or restaurant, 0 otherwise Transport 1 if patient is working in transport, 0 otherwise Financial 1 if patient is working in financial intermediation, real estate, renting and business activities, 0 otherwise Public administration 1 if patient is working in public administration, 0 otherwise Education 1 if patient is working in education, 0 otherwise Health 1 if patient is working in health or social work, 0 otherwise</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2</head><label>2</label><figDesc>Descriptive statistics of the variables used in the regression analyses.</figDesc><table><row><cell>Variable</cell><cell>All patients</cell><cell>Males</cell><cell>Females</cell></row><row><cell></cell><cell>Mean (S.D)</cell><cell>Mean (S.D) a</cell><cell>Mean (S.D) a</cell></row><row><cell>Patient characteristics</cell><cell></cell><cell></cell><cell></cell></row><row><cell>days</cell><cell>62.267 (77.443)</cell><cell>63.457 (79.235)</cell><cell>61.500 (76.257)</cell></row><row><cell>Male</cell><cell>0.392 (0.488)</cell><cell>-</cell><cell>-</cell></row><row><cell>Age</cell><cell>42.150 (11.781)</cell><cell>42.516 (11.944)</cell><cell>41.915 (11.668)</cell></row><row><cell>Years of education</cell><cell>12.354 (3.228)</cell><cell>(3.137)</cell><cell>12.566 (3.268)</cell></row><row><cell></cell><cell>2208.16 (2139.32)</cell><cell>2583.48 (2912.18)</cell><cell>1966.43 (1383.18)</cell></row><row><cell>of individuals in the household</cell><cell>2.724 (1.390)</cell><cell>2.715 (1.469)</cell><cell>2.730 (1.338)</cell></row><row><cell>of children &lt; 6</cell><cell>0.248 (0.545)</cell><cell>0.234 (0.553)</cell><cell>0.256 (0.540)</cell></row><row><cell>of experience</cell><cell>19.539 (10.311)</cell><cell>21.949 (11.186)</cell><cell>17.986 (9.384)</cell></row><row><cell>Sick days in 2002</cell><cell>19.257 (40.356)</cell><cell>17.430 (38.581)</cell><cell>20.433 (41.417)</cell></row><row><cell>Working hours per week</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Working hours 4-19</cell><cell>0.127 (0.326)</cell><cell>0.053 (0.210)</cell><cell>0.174 (0.377)</cell></row><row><cell>hours 20-29</cell><cell>0.110 (0.312)</cell><cell>0.024 (0.152)</cell><cell>0.165 (0.371)</cell></row><row><cell>Working hours 30þ</cell><cell>0.763 (0.425)</cell><cell>0.923 (0.267)</cell><cell>0.661 (0.473)</cell></row><row><cell>Chapters in ICPC</cell><cell></cell><cell></cell><cell></cell></row><row><cell>General and unspecified (A)</cell><cell>0.049 (0.211)</cell><cell>0.047 (0.201)</cell><cell>0.051 (0.323)</cell></row><row><cell>Blood (B)</cell><cell>0.004 (0.066)</cell><cell>0.004 (0.064)</cell><cell>0.004 (0.067)</cell></row><row><cell>Digestive (D)</cell><cell>0.046 (0.209)</cell><cell>0.056 (0.229)</cell><cell>0.040 (0.195)</cell></row><row><cell>Eye (F)</cell><cell>0.008 (0.087)</cell><cell>0.010 (0.098)</cell><cell>0.006 (0.079)</cell></row><row><cell>Ear (H)</cell><cell>0.007 (0.081)</cell><cell>0.007 (0.082)</cell><cell>0.006 (0.080)</cell></row><row><cell>Circulatory (K)</cell><cell>0.043 (0.202)</cell><cell>0.061 (0.239)</cell><cell>0.031 (0.173)</cell></row><row><cell>Musculoskeletal (L)</cell><cell>0.440 (0.496)</cell><cell>0.496 (0.499)</cell><cell>0.403 (0.491)</cell></row><row><cell>Neurological (N)</cell><cell>0.044 (0.206)</cell><cell>0.041 (0.197)</cell><cell>0.047 (0.211)</cell></row><row><cell>Psychological (P)</cell><cell>0.163 (0.370)</cell><cell>0.151 (0.358)</cell><cell>0.171 (0.377)</cell></row><row><cell>Respiratory (R)</cell><cell>0.062 (0.241)</cell><cell>0.062 (0.241)</cell><cell>0.062 (0.241)</cell></row><row><cell>Skin (S)</cell><cell>0.028 (0.166)</cell><cell>0.039 (0.193)</cell><cell>0.022 (0.146)</cell></row><row><cell>Endocrine (T)</cell><cell>0.013 (80.115)</cell><cell>0.011 (0.104)</cell><cell>0.015 (0.122)</cell></row><row><cell>Urology (U)</cell><cell>0.007 (0.085)</cell><cell>0.008 (0.087)</cell><cell>0.007 (0.084)</cell></row><row><cell>Pregnancy (W)</cell><cell>0.061 (0.239)</cell><cell>0</cell><cell>0.100 (0.300)</cell></row><row><cell>Female genital system (X)</cell><cell>0.021 (0.144)</cell><cell>0</cell><cell>0.035 (0.183)</cell></row><row><cell>Male genital system (Y)</cell><cell>0.003 (0.057)</cell><cell>0.008 (0.090)</cell><cell>0</cell></row><row><cell>Industry</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Agriculture</cell><cell>0.008 (0.089)</cell><cell>0.013 (0.115)</cell><cell>0.005 (0.067)</cell></row><row><cell>Mining</cell><cell>0.016 (0.126)</cell><cell>0.031 (0.172)</cell><cell>0.007 (0.083)</cell></row><row><cell>Manufacturing</cell><cell>0.130 (0.239)</cell><cell>0.225. (0.415)</cell><cell>0.067 (0.259)</cell></row><row><cell>Construction</cell><cell>0.061 (0.238)</cell><cell>0.141 (0.348)</cell><cell>0.010 (0.095)</cell></row><row><cell>Wholesale and retail</cell><cell>0.154 (0.361)</cell><cell>0.152 (0.361)</cell><cell>0.154 (0.361)</cell></row><row><cell>Transport</cell><cell>0.082 (0.275)</cell><cell>0.136 (0.342)</cell><cell>0.048 (0.213)</cell></row><row><cell>Financial</cell><cell>0.092 (0.290)</cell><cell>0.094 (0.291)</cell><cell>0.092 (0.288)</cell></row><row><cell>Public administration</cell><cell>0.067 (0.249)</cell><cell>0.057 (0.232)</cell><cell>0.073 (0.260)</cell></row><row><cell>Education</cell><cell>0.087 (0.282)</cell><cell>0.049 (0.215)</cell><cell>0.112 (0.316)</cell></row><row><cell>Health</cell><cell>0.303 (0.459)</cell><cell>0.102 (0.303)</cell><cell>0.432 (0.495)</cell></row><row><cell>Physician characteristics</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Age_GP</cell><cell>47.520 (8.768)</cell><cell>47.733 (8.995)</cell><cell>47.384 (8.616)</cell></row><row><cell>Male_GP</cell><cell>0.721 (0.449)</cell><cell>0.815 (0.388)</cell><cell>0.660 (0.474)</cell></row><row><cell>Specialist_GP</cell><cell>0.613 (0.487)</cell><cell>0.602 (0.489)</cell><cell>0.620 (0.485)</cell></row><row><cell>List length</cell><cell>1334.67 (392.239)</cell><cell>1332.714 (395.362)</cell><cell>1335.939 (390.210)</cell></row><row><cell>Fixed wage</cell><cell>0.063 (0.243)</cell><cell>0.067 (0.249)</cell><cell>0.061 (0.239)</cell></row><row><cell>Municipality characteristics</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Large cities</cell><cell>0.583 (0.492)</cell><cell>0.568 (0.494)</cell><cell>0.594 (0.491)</cell></row><row><cell>Other urban areas</cell><cell>0.290 (0.454)</cell><cell>0.302 (0.459)</cell><cell>0.282 (0.450)</cell></row><row><cell>Rural areas</cell><cell>0.127 (0.332)</cell><cell>0.130 (0.337)</cell><cell>0.124 (0.330)</cell></row><row><cell>Index mortality</cell><cell>5.574 (2.131)</cell><cell>5.584 (2.149)</cell><cell>5.568 (2.120)</cell></row><row><cell>Index unemployment</cell><cell>6.117 (2.289)</cell><cell>6.122 (2.293)</cell><cell>6.113 (2.287)</cell></row><row><cell>Number of episodes</cell><cell>353,611</cell><cell>138,524</cell><cell>215,087</cell></row><row><cell>Number of physicians</cell><cell></cell><cell>3691</cell><cell>3703</cell></row><row><cell>Number of municipalities</cell><cell></cell><cell>415</cell><cell>414</cell></row></table><note>a Means or proportions of variables, standard deviation of variables in parenthesis.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3</head><label>3</label><figDesc>The average length of sickness absence per main chapter in ICPC.</figDesc><table><row><cell></cell><cell>All patients</cell><cell>Males</cell><cell>Females</cell></row><row><cell></cell><cell>(n ¼ 353,611)</cell><cell>(n ¼ 138,524)</cell><cell>(n ¼ 215,087)</cell></row><row><cell></cell><cell>Mean (S.D) a</cell><cell>Mean (S.D) a</cell><cell>Mean (S.D) a</cell></row><row><cell>General and</cell><cell>48.177 (67.990)</cell><cell>48.476 (68.663)</cell><cell>47.998 (67.585)</cell></row><row><cell>unspecified (A)</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Blood (B)</cell><cell>86.071 (92.285)</cell><cell>107.859 (98.050)</cell><cell>73.084 (86.092)</cell></row><row><cell>Digestive (D)</cell><cell>46.120 (66.727)</cell><cell>45.885 (66.436)</cell><cell>46.333 (66.994)</cell></row><row><cell>Eye (F)</cell><cell>49.307 (65.843)</cell><cell>45.529 (68.256)</cell><cell>42.390 (67.526)</cell></row><row><cell>Ear (H)</cell><cell>68.022 (86.478)</cell><cell>73.922 (90.428)</cell><cell>63.987 (83.463)</cell></row><row><cell>Circulatory (K)</cell><cell>78.877 (88.272)</cell><cell>90.651 (90.722)</cell><cell>64.030 (82.733)</cell></row><row><cell>Musculoskeletal (L)</cell><cell>66.392 (79.418)</cell><cell>63.659 (77.601)</cell><cell>68.559 (80.764)</cell></row><row><cell>Neurological (N)</cell><cell>66.109 (82.785)</cell><cell>71.720 (86.431)</cell><cell>62.950 (80.493)</cell></row><row><cell>Psychological (P)</cell><cell>75.933 (84.049)</cell><cell>79.403 (85.371)</cell><cell>73.963 (83.226)</cell></row><row><cell>Respiratory (R)</cell><cell>28.766 (56.900)</cell><cell>32.597 (62.430)</cell><cell>26.288 (52.871)</cell></row><row><cell>Skin (S)</cell><cell>39.858 (64.262)</cell><cell>36.030 (59.819)</cell><cell>44.266 (68.768)</cell></row><row><cell>Endocrine (T)</cell><cell>74.122 (85.329)</cell><cell>81.598 (89.192)</cell><cell>70.634 (83.249)</cell></row><row><cell>Urology (U)</cell><cell>44.051 (68.485)</cell><cell>56.280 (77.228)</cell><cell>35.554 (60.267)</cell></row><row><cell>Pregnancy (W)</cell><cell>51.923 (45.510)</cell><cell>-</cell><cell>51.923 (45.510)</cell></row><row><cell>Female genital system</cell><cell>54.725 (73.738)</cell><cell>-</cell><cell>54.725 (73.738)</cell></row><row><cell>(X)</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Male genital</cell><cell>56.478 (73.233)</cell><cell>56.478 (73.233)</cell><cell>-</cell></row><row><cell>system (Y)</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>62.267 (77.443)</cell><cell>63.458 (79.235)</cell><cell>61.500 (76.257)</cell></row><row><cell cols="3">Means and standard deviation of variables in parenthesis.</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 4</head><label>4</label><figDesc>part results of the random intercept model, where the length of sick leave (LSL) is the dependent variable.</figDesc><table><row><cell>Total sample</cell><cell>Male patients</cell><cell>Female patients</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>5</head><label></label><figDesc>Random effects parameters for the random intercept models, where the length of sick leave (LSL) is the dependent variable.</figDesc><table><row><cell></cell><cell></cell><cell>patients</cell><cell>Males</cell><cell>Females</cell></row><row><cell></cell><cell></cell><cell>Variance</cell><cell>Variance</cell><cell>Variance</cell></row><row><cell></cell><cell></cell><cell>component (se)</cell><cell>component (se)</cell><cell>component (se)</cell></row><row><cell cols="2">Model I: Null model</cell><cell></cell><cell></cell></row><row><cell cols="2">Municipalities</cell><cell>57.007 (5.898)</cell><cell>56.964 (7.050)</cell><cell>64.117 (7.398)</cell></row><row><cell>ðs 2 m Þ</cell><cell>ðs 2 G Þ ðs 2 i Þ</cell><cell cols="3">36.584 (2.418) 5913.608 (14.129) 6197.376 (23.798) 5717.174 (17.562) 33.826 (4.549) 46.686 (3.526)</cell></row><row><cell cols="4">Model II: includes patient-level covariates only</cell></row><row><cell cols="2">Municipalities</cell><cell>50.017 (5.344)</cell><cell>46.122 (5.999)</cell><cell>60.103 (7.090)</cell></row><row><cell>ðs 2 m Þ</cell><cell>ðs 2 G Þ ðs 2 i Þ</cell><cell cols="3">35.397 (2.301) 5613.526 (13.413) 5804.369 (22.289) 5442.507 (16.718) 31.164 (4.222) 47.415 (3.415)</cell></row><row><cell cols="4">Model III: includes patient-level and GP-level covariates</cell></row><row><cell cols="2">Municipalities</cell><cell>48.099 (5.216)</cell><cell>44.694 (5.905)</cell><cell>57.014 (6.865)</cell></row><row><cell>ðs 2 m Þ</cell><cell>ðs 2 G Þ ðs 2 i Þ</cell><cell cols="3">35.284 (2.304) 5613.513 (13.412) 5804.262 (22.289) 5442.543 (16.718) 31.216 (4.233) 47.390 (3.420)</cell></row><row><cell cols="4">Model IV: includes all three-level covariates</cell></row><row><cell cols="2">Municipalities</cell><cell>48.205 (5.238)</cell><cell>43.074 (5.834)</cell><cell>56.873 (6.838)</cell></row><row><cell>ðs 2 m Þ</cell><cell>ðs 2 G Þ ðs 2 i Þ</cell><cell cols="3">35.207 (2.301) 5613.510 (13.412) 5804.323 (22.288) 5442.509 (16.718) 31.304 (4.236) 47.204 (3.411)</cell></row><row><cell cols="3">Number of episodes 353,611</cell><cell></cell><cell>215,087</cell></row><row><cell cols="3">Number physicians 3709</cell><cell>3691</cell><cell>3703</cell></row><row><cell>Number</cell><cell></cell><cell>415</cell><cell>415</cell><cell>414</cell></row><row><cell cols="2">municipalities</cell><cell></cell><cell></cell></row></table><note>Note: Standard errors are in parenthesis.</note></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Access to primary health care and health outcomes: the relationships between GP characteristics and mortality rates</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Holmås</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">H</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Health Economics</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="1139" to="1153" />
+			<date type="published" when="2006" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Sickness absence: a review of performed studies focused on levels of exposures and theories utilized</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Alexanderson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scandinavian Journal of Social Medicine</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page" from="241" to="249" />
+			<date type="published" when="1998" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Influence local structural factors on physicians&apos; sick-listing practice: a population-based</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">E</forename><surname>¨v</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Borgquist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">F</forename><surname>Sva ¨rdsudd</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Public Health</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="470" to="474" />
+			<date type="published" when="2005" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Guidelines, professionals and the production of standardisation and the professionalism of insurance medicine</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Berg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Horstman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Plass</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Van Heusden</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sociology of Health and Illness</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="765" to="791" />
+			<date type="published" when="2000" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Work absence in Europe</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bonato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lusinyan</surname></persName>
+		</author>
+		<idno>04/ 193</idno>
+		<imprint>
+			<date type="published" when="2004" />
+			<publisher>International Monetary Fund</publisher>
+			<pubPlace>Washington DC</pubPlace>
+		</imprint>
+	</monogr>
+	<note type="report_type">IMF Working Paper</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">ICPC a standard classification in Norway</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Brage</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">G</forename><surname>Bentsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Bjerkedal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">F</forename><surname>Nygård</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Family Practice</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="391" to="396" />
+			<date type="published" when="1996" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Fastlegers sykemeldingspraksis I: Variasjoner. RTVrapport 05</title>
+		<author>
+			<persName><surname>Brage</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Kann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Oslo: Rikstrygdeverket</title>
+		<imprint>
+			<date type="published" when="2006" />
+		</imprint>
+	</monogr>
+	<note>In Norwegian</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Musculoskeletal impairments in the working the prognostic role of diagnoses and socioeconomic status. prospective study of sickness absence and transition to pension</title>
+		<author>
+			<persName><forename type="first">Gjesdal</forename><surname>Bratberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Maeland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">G</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Spine</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">14</biblScope>
+			<biblScope unit="page" from="1519" to="1525" />
+			<date type="published" when="2009" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">The reliability and validity of doctorrecorded morbidity data in active data collection systems. Scandinavian Journal of Primary Health Care</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Angelis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Harris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1998" />
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="50" to="55" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Trivedi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">K</forename></persName>
+		</author>
+		<title level="m">Methods and application</title>
+				<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="2005" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Sick-listing habits among general practitioners in a Swedish county</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Englund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Sva ¨rdsudd</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scandinavian Journal of Primary Health Care</title>
+		<imprint>
+			<biblScope unit="page" from="81" to="86" />
+			<date type="published" when="2000" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Socioeconomic and sex differentials in reason for sickness absence from the Whitehall II study</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>North</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Head</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Canner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Marmot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Occupational and Environmental Medicine</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="page" from="91" to="98" />
+			<date type="published" when="1998" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Sickness certification: time to scrap the med 3?</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ford</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of General Practice</title>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="page">1353</biblScope>
+			<date type="published" when="1998" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">The international classification of primary care (ICPC): new applications in research and computer-based patient records in family practice</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">M</forename><surname>Hofmans-Okkes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Lamberts</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Family Practice</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="294" to="302" />
+			<date type="published" when="1996" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Sickness certification system in the United Kingdom: qualitative study of views of practitioners in Scotland</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Hoddinott</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Wilson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dowell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Barbour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">British Medical Journal</title>
+		<imprint>
+			<biblScope unit="volume">328</biblScope>
+			<biblScope unit="page" from="88" to="91" />
+			<date type="published" when="2004" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Does it really matter where you live? A panel data multilevel analysis of Swedish municipality level social capital on individual health-related quality of Health Economics</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">K</forename><surname>Islam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Merlo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Kawachi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lindstrom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Burstro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U.-G</forename><surname>Gerdtham</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Policy and Law</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="209" to="235" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Computer-based longitudinal recording of episodes of care in general practice using the international classification of primary care (ICPC)</title>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">B</forename><surname>Kelstrup</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kohlbau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lassen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">C</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scandinavian Journal Primary Health Care</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="53" to="56" />
+			<date type="published" when="1993" />
+		</imprint>
+	</monogr>
+	<note>Experience from one practice. for audit and quality assessment. Suppl. 1</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Is variation a quality in general practice?</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Kragstrup</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scandinavian Journal Primary Health Care</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="32" to="35" />
+			<date type="published" when="1993" />
+		</imprint>
+	</monogr>
+	<note>Suppl.</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Judging without criteria? Sickness in Dutch disability schemes</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Meershoek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Krumeich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Vos</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sociology of Health and Illness</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="497" to="514" />
+			<date type="published" when="2007" />
+		</imprint>
+	</monogr>
+	<note>NAV.. Statistical yearbook. NAV</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Multilevel and longitudinal modeling using</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rabe-Hesketh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Skrondal</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008" />
+			<publisher>Stata Press</publisher>
+			<pubPlace>College Station, Texas</pubPlace>
+		</imprint>
+	</monogr>
+	<note>2nd ed.</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">The influence of GP and patient gender interaction on the duration of certified sickness absence</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Gabbay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Family Practice</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="246" to="252" />
+			<date type="published" when="2006" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Patient, clinician, and general practice factors in certified sickness</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Shiels</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gabbay</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Public Health</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="250" to="256" />
+			<date type="published" when="2007" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Multilevel analysis: An introduction to basic and advanced multilevel modeling</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A B</forename><surname>Snijders</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Bosker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scandinavian Journal of Public Health</title>
+		<editor>¨derberg, E., &amp; Alexanderson, K.</editor>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="460" to="474" />
+			<date type="published" when="1999" />
+			<publisher>SAGE Publications</publisher>
+		</imprint>
+	</monogr>
+	<note>Sickness certification practices of physia review of the literature</note>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename></persName>
+		</author>
+		<title level="m">Physicians as gatekeepers: illness certification as a rationing Public Policy</title>
+				<imprint>
+			<date type="published" when="1979" />
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="page" from="227" to="254" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Views on sick-listing practice among Swedish general practitioners -a phenomenographic study</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Swartling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Peterson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Wahlstro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Family Practice</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">44</biblScope>
+			<biblScope unit="page" from="1" to="9" />
+			<date type="published" when="2007" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">Sickness certification in general practice: a review. Family Practice</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Tellnes</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1989" />
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="58" to="65" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title level="m" type="main">Inter-doctor variation in sickness certi-Scandinavian Journal of Primary Health Care</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Sandvik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Moum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1990" />
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="45" to="52" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Dilemmas in sickness certification among Swedish physicians</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Timpka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hensing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Alexanderson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Public Health</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="215" to="219" />
+			<date type="published" when="1995" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
