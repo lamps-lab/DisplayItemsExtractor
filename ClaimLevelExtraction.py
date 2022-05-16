@@ -90,51 +90,47 @@ def find_figures_ref(text):
     """
             Given the text extracted from the paper, this method will find the number of figures in the text and return
         """
-    # Extract the figures numbered with numbers (Fig. 1, Fig.1, Fig 1, Figure 1,
-    #                                            Fig. 1a, Fig.1a, Fig 1a, Figure 1a,
-    #                                            Figs. 1-3, Figs 1-3, Figures 1-3,
-    #                                            Figs. 1 and 2, Figs 1 and 2, Figures 1 and 2)
-    figure_refs = re.findall('fig [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('fig. [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('fig.[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('figure [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('figs. [0-9]+[a-z]* and [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('figs [0-9]+[a-z]* and [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('figures [0-9]+[a-z]* and [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('figures [0-9]+–[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figs. [0-9]+–[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figs [0-9]+–[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figures [0-9]+-[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figs. [0-9]+-[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('figs [0-9]+-[0-9]+', text, flags=re.IGNORECASE) \
-                  + re.findall('fig\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('fig.\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('figure\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('figs.\xa0[0-9]+[a-z]* and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('figs\xa0[0-9]+[a-z]* and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                  + re.findall('figures\xa0[0-9]+[a-z]* and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE)
-
-    # Extract the figures numbered with roman numbers (Fig. II, Fig II, Figure II)
-    tables_with_roman_numbers = re.findall('Figure (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('figure (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('FIGURE (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('Fig (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('fig (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('FIG (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('Fig. (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('fig. (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('FIG. (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('Fig.(X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('fig.(X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('FIG.(X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text)
 
     figure_numbers = []
     additional_figures_numbers_with_alpha_chars = []
 
+    # Extract the figures numbered with numbers (Fig. 1, Fig.1, Fig 1, Figure 1,
+    #                                            Fig. 1a, Fig.1a, Fig 1a, Figure 1a,
+    #                                            Figs. 1-3, Figs 1-3, Figures 1-3,
+    #                                            Figs. 1 and 2, Figs 1 and 2, Figures 1 and 2)
+    figure_refs = []
+
+    figure_refs_pattern_1 = re.findall(r'(fig(ure) ?|fig.( )?)([0-9]+[a-z]*)', text, flags=re.IGNORECASE)
+    figure_refs_pattern_2 = re.findall(r'(fig(ure)?s |figs. )([0-9]+[a-z]* and [0-9]+[a-z]*)', text,
+                                       flags=re.IGNORECASE)
+    figure_refs_pattern_3 = re.findall(r'(fig(ure)?s |figs. )([0-9]+–[0-9]+)', text, flags=re.IGNORECASE)
+    figure_refs_pattern_4 = re.findall(r'(fig(ure)?s |figs. )([0-9]+-[0-9]+)', text, flags=re.IGNORECASE)
+
+    figure_refs.extend([(pattern[0] + pattern[3]) for pattern in figure_refs_pattern_1])
+    figure_refs.extend([(pattern[0] + pattern[2]) for pattern in figure_refs_pattern_2])
+    figure_refs.extend([(pattern[0] + pattern[2]) for pattern in figure_refs_pattern_3])
+    figure_refs.extend([(pattern[0] + pattern[2]) for pattern in figure_refs_pattern_4])
+
+    # Extract the figures numbered with roman numbers (Fig. II, Fig II, Figure II)
+    figs_with_roman_numbers = []
+
+    fig_roman_num_pattern = re.findall(r'(fig(ure) ?|fig.( )?)(M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})'
+                                       r'(IX|IV|V?I{0,3})', text) \
+                            + re.findall(r'(Fig(ure) ?|Fig.( )?)(M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})'
+                                         r'(IX|IV|V?I{0,3})', text) \
+                            + re.findall(r'(FIG(URE) ?|FIG.( )?)(M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})'
+                                         r'(IX|IV|V?I{0,3})', text)
+
+    for pattern in fig_roman_num_pattern:
+        if str(pattern[3] + pattern[4] + pattern[5] + pattern[6]) != '':
+            figs_with_roman_numbers.append('figure ' + str(pattern[3] + pattern[4] + pattern[5] + pattern[6]))
+
     # Convert the roman numbers to integers
-    for roman_number_tuple in tables_with_roman_numbers:
-        roman_number = roman_number_tuple[0] + roman_number_tuple[1]
-        roman = {'I': 1, 'V': 5, 'X': 10, 'IV': 4, 'IX': 9}
+    for fig_ref in figs_with_roman_numbers:
+        roman_number = fig_ref.split(" ")[1]
+        roman = {'I': 1, 'V': 5, 'X': 10, 'IV': 4, 'IX': 9, 'XL': 40, 'L': 50, 'XC': 90, 'C': 100, 'CD': 400, 'D': 500,
+                 'CM': 900, 'M': 1000}
+
         i = 0
         num = 0
         while i < len(roman_number):
