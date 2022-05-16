@@ -16,22 +16,29 @@ def find_tables_ref(text):
     additional_table_numbers_with_alpha_chars = []
 
     # Extract the tables numbered with numbers (Table 1, Table 1a, Tables 1-3, Tables 1 and 2)
-    table_refs = re.findall('table [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                 + re.findall('tables [0-9]+–[0-9]+', text, flags=re.IGNORECASE) \
-                 + re.findall('tables [0-9]+-[0-9]+', text, flags=re.IGNORECASE) \
-                 + re.findall('tables [0-9]+[a-z]* and [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                 + re.findall('table\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                 + re.findall('tables\xa0[0-9]+[a-z]* and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE)
+    table_refs = re.findall(r'table [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                 + re.findall(r'tables [0-9]+–[0-9]+', text, flags=re.IGNORECASE) \
+                 + re.findall(r'tables [0-9]+-[0-9]+', text, flags=re.IGNORECASE) \
+                 + re.findall(r'tables [0-9]+[a-z]* and [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                 + re.findall(r'table\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
+                 + re.findall(r'tables\xa0[0-9]+[a-z]* and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE)
 
     # Extract the tables numbered with roman numbers (Table II)
-    tables_with_roman_numbers = re.findall('Table (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('table (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text) \
-                                + re.findall('TABLE (X{0,3})(X|IX|VIII|VII|VI|V|IV|III|II|I)', text)
+    tables_with_roman_numbers = []
+
+    table_roman_num_pattern = re.findall(r'Table (M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})', text) \
+                              + re.findall(r'table (M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})', text) \
+                              + re.findall(r'TABLE (M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})', text)
+
+    for pattern in table_roman_num_pattern:
+        if str(pattern[0] + pattern[1] + pattern[2] + pattern[3]) != '':
+            tables_with_roman_numbers.append('table ' + str(pattern[0] + pattern[1] + pattern[2] + pattern[3]))
 
     # Convert the roman numbers to integers
-    for roman_number_tuple in tables_with_roman_numbers:
-        roman_number = roman_number_tuple[0] + roman_number_tuple[1]
-        roman = {'I': 1, 'V': 5, 'X': 10, 'IV': 4, 'IX': 9}
+    for table_ref in tables_with_roman_numbers:
+        roman_number = table_ref.split(" ")[1]
+        roman = {'I': 1, 'V': 5, 'X': 10, 'IV': 4, 'IX': 9, 'XL': 40, 'L': 50, 'XC': 90, 'C': 100, 'CD': 400, 'D': 500,
+                 'CM': 900, 'M': 1000}
         i = 0
         num = 0
         while i < len(roman_number):
