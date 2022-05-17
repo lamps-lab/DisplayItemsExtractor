@@ -273,8 +273,8 @@ if __name__ == "__main__":
     # file_type = "ctf"
     # input_file = "./input/papers/XMLFileIntersection/Abendroth_AmSocioRev_2014_G8Lr.xml"
     file_type = "grobid"
-    input_file = "./input/papers/grobid-tei-xml/Fujiwara_Econometrica_2015_BbLg.xml"
-    output_file = "./output/paper_level/output.json"
+    input_file = "../input/papers/grobid-tei-xml/Fujiwara_Econometrica_2015_BbLg.xml"
+    output_file = "../output/paper_level/output.json"
 
     print("Processing " + input_file)
 
