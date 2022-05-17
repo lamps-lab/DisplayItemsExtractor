@@ -42,11 +42,23 @@ This library provides the functionalities to extract the table and figure refere
 ### Setup
 * **Python Version: 3.9**
 
+### Install
+Run the below command to install the TableAndFigureReferenceExtractor library into your code.
+```
+pip3 install -e git+https://github.com/lamps-lab/TableAndFigureReferenceExtractor#egg=table_and_fig_ref_extraction  
+```
+
+Optionally, upgrade pip to avoid getting warnings.
+```
+python3 -m pip install --upgrade pip 
+```
+
+
 ### Run code
 
-#### 1. Import methods
+#### 1. Import methods of this library into your code
 ```
-from src.table_and_fig_ref_extraction.ExtractTableAndFigRefPatterns import *
+from table_and_fig_ref_extraction.ExtractTableAndFigRefPatterns import *
 ```
 
 #### 2. Extract Table References from the Text
