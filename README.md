@@ -1,4 +1,4 @@
-# Table and Figure Mentions Extractor
+# Table and Figure Reference Extractor
 
 The display items of a scholarly document are the figures and tables in that document. This code repository contains libraries and applications of Python programs that extract figures and tables mentions. 
 
@@ -30,12 +30,12 @@ The sample input can be found at input directory.
 
 ### Run Code
 * For paper level extractions:
-  1. Go to the `PaperLevelExtraction.py`
+  1. Go to the `src/PaperLevelExtraction.py`
   2. Add "ctf" or "grobid" as the `file_type`
   3. Add the xml file path as the `input_file`, similar to
      1. `./input/papers/grobid-tei-xml/FILENAME` (eg: `./input/papers/grobid-tei-xml/Aakvik_SocSciMed_2010_5lxl.xml`)
      2. `./input/papers/XMLFileIntersection/FILENAME` (eg: `./input/papers/XMLFileIntersection/Abendroth_AmSocioRev_2014_G8Lr.xml`)
-  4. Output json file can be found at `output/paper_level/output.json`
+  4. Output json file can be found at `./output/paper_level/output.json`
   5. output.json should look like
        ```
      {
@@ -45,10 +45,10 @@ The sample input can be found at input directory.
 
 
 * For claim level extractions:
-  1. Go to the `ClaimLevelExtraction.py`
+  1. Go to the `src/ClaimLevelExtraction.py`
   2. Add the file path which contains the claim text as the `input_file`
-     1. `input/claims/FILENAME` (eg: `input/claims/AALTONEN_Criminology_2013_weJ4.txt`)
-  3. Output json file can be found at `output/claim_level/output.json`
+     1. `./input/claims/FILENAME` (eg: `./input/claims/AALTONEN_Criminology_2013_weJ4.txt`)
+  3. Output json file can be found at `./output/claim_level/output.json`
   4. output.json should look like
      ```
      {
