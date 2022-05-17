@@ -17,7 +17,9 @@ regex_alphanumeric_fig_patterns = [
     (r'(fig(ure) ?|fig.( )?)([0-9]+[a-z]*)', True),
     (r'(fig(ure)?s |figs. )([0-9]+–[0-9]+)', True),
     (r'(fig(ure)?s |figs. )([0-9]+-[0-9]+)', True),
-    (r'(fig(ure)?s |figs. )([0-9]+[a-z]* and [0-9]+[a-z]*)', True)
+    (r'(fig(ure)?s |figs. )([0-9]+[a-z]* and [0-9]+[a-z]*)', True),
+    (r'(fig(ure)\xa0?|fig.(\xa0)?)([0-9]+[a-z]*)', True),
+    (r'(fig(ure)?s\xa0|figs.\xa0)([0-9]+[a-z]* and\xa0[0-9]+[a-z]*)', True)
 ]
 regex_roman_number_fig_patterns = [
     (r'(fig(ure) ?|fig.( )?)(M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})', False),
