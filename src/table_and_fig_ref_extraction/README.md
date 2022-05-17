@@ -1,4 +1,4 @@
-#Table and Figure Reference Extraction Using RegEx 
+# Table and Figure Reference Extraction Using RegEx 
 
 This library provides the functionalities to extract the table and figure references from the text in scientific papers using Regular Expressions(RegEx). This library has a predefined lists of RegEx patterns which represent different styles that the authors can use to refer tables and figures in scientific papers.
 
