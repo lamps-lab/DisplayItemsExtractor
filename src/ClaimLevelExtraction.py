@@ -1,5 +1,5 @@
-import re
 import common
+from src.table_and_fig_ref_extraction import ExtractTableAndFigRefPatterns
 
 
 def read_claims(read_file):
@@ -10,29 +10,12 @@ def read_claims(read_file):
 
 def find_tables_ref(text):
     """
-            Given the claim text, this method will find the number of tables mentioned in the text and return
+    Given the claim text, this method will find the number of tables mentioned in the text and return
     """
     table_numbers = []
     additional_table_numbers_with_alpha_chars = []
 
-    # Extract the tables numbered with numbers (Table 1, Table 1a, Tables 1-3, Tables 1 and 2)
-    table_refs = re.findall(r'table [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                 + re.findall(r'tables [0-9]+–[0-9]+', text, flags=re.IGNORECASE) \
-                 + re.findall(r'tables [0-9]+-[0-9]+', text, flags=re.IGNORECASE) \
-                 + re.findall(r'tables [0-9]+[a-z]* and [0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                 + re.findall(r'table\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE) \
-                 + re.findall(r'tables\xa0[0-9]+[a-z]* and\xa0[0-9]+[a-z]*', text, flags=re.IGNORECASE)
-
-    # Extract the tables numbered with roman numbers (Table II)
-    tables_with_roman_numbers = []
-
-    table_roman_num_pattern = re.findall(r'Table (M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})', text) \
-                              + re.findall(r'table (M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})', text) \
-                              + re.findall(r'TABLE (M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})', text)
-
-    for pattern in table_roman_num_pattern:
-        if str(pattern[0] + pattern[1] + pattern[2] + pattern[3]) != '':
-            tables_with_roman_numbers.append('table ' + str(pattern[0] + pattern[1] + pattern[2] + pattern[3]))
+    table_refs, tables_with_roman_numbers = ExtractTableAndFigRefPatterns.findTableRefs(text)
 
     # Convert the roman numbers to integers
     for table_ref in tables_with_roman_numbers:
@@ -88,42 +71,13 @@ def find_tables_ref(text):
 
 def find_figures_ref(text):
     """
-            Given the text extracted from the paper, this method will find the number of figures in the text and return
-        """
+    Given the text extracted from the paper, this method will find the number of figures in the text and return
+    """
 
     figure_numbers = []
     additional_figures_numbers_with_alpha_chars = []
 
-    # Extract the figures numbered with numbers (Fig. 1, Fig.1, Fig 1, Figure 1,
-    #                                            Fig. 1a, Fig.1a, Fig 1a, Figure 1a,
-    #                                            Figs. 1-3, Figs 1-3, Figures 1-3,
-    #                                            Figs. 1 and 2, Figs 1 and 2, Figures 1 and 2)
-    figure_refs = []
-
-    figure_refs_pattern_1 = re.findall(r'(fig(ure) ?|fig.( )?)([0-9]+[a-z]*)', text, flags=re.IGNORECASE)
-    figure_refs_pattern_2 = re.findall(r'(fig(ure)?s |figs. )([0-9]+[a-z]* and [0-9]+[a-z]*)', text,
-                                       flags=re.IGNORECASE)
-    figure_refs_pattern_3 = re.findall(r'(fig(ure)?s |figs. )([0-9]+–[0-9]+)', text, flags=re.IGNORECASE)
-    figure_refs_pattern_4 = re.findall(r'(fig(ure)?s |figs. )([0-9]+-[0-9]+)', text, flags=re.IGNORECASE)
-
-    figure_refs.extend([(pattern[0] + pattern[3]) for pattern in figure_refs_pattern_1])
-    figure_refs.extend([(pattern[0] + pattern[2]) for pattern in figure_refs_pattern_2])
-    figure_refs.extend([(pattern[0] + pattern[2]) for pattern in figure_refs_pattern_3])
-    figure_refs.extend([(pattern[0] + pattern[2]) for pattern in figure_refs_pattern_4])
-
-    # Extract the figures numbered with roman numbers (Fig. II, Fig II, Figure II)
-    figs_with_roman_numbers = []
-
-    fig_roman_num_pattern = re.findall(r'(fig(ure) ?|fig.( )?)(M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})'
-                                       r'(IX|IV|V?I{0,3})', text) \
-                            + re.findall(r'(Fig(ure) ?|Fig.( )?)(M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})'
-                                         r'(IX|IV|V?I{0,3})', text) \
-                            + re.findall(r'(FIG(URE) ?|FIG.( )?)(M{0,4})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})'
-                                         r'(IX|IV|V?I{0,3})', text)
-
-    for pattern in fig_roman_num_pattern:
-        if str(pattern[3] + pattern[4] + pattern[5] + pattern[6]) != '':
-            figs_with_roman_numbers.append('figure ' + str(pattern[3] + pattern[4] + pattern[5] + pattern[6]))
+    figure_refs, figs_with_roman_numbers = ExtractTableAndFigRefPatterns.findFigRefs(text)
 
     # Convert the roman numbers to integers
     for fig_ref in figs_with_roman_numbers:
