@@ -1,5 +1,5 @@
 import common
-from src.table_and_fig_ref_extraction import ExtractTableAndFigRefPatterns
+from src.table_and_fig_ref_extraction.ExtractTableAndFigRefPatterns import *
 
 
 def read_claims(read_file):
@@ -15,7 +15,7 @@ def find_tables_ref(text):
     table_numbers = []
     additional_table_numbers_with_alpha_chars = []
 
-    table_refs, tables_with_roman_numbers = ExtractTableAndFigRefPatterns.findTableRefs(text)
+    table_refs, tables_with_roman_numbers = findTableRefs(text)
 
     # Convert the roman numbers to integers
     for table_ref in tables_with_roman_numbers:
@@ -77,7 +77,7 @@ def find_figures_ref(text):
     figure_numbers = []
     additional_figures_numbers_with_alpha_chars = []
 
-    figure_refs, figs_with_roman_numbers = ExtractTableAndFigRefPatterns.findFigRefs(text)
+    figure_refs, figs_with_roman_numbers = findFigRefs(text)
 
     # Convert the roman numbers to integers
     for fig_ref in figs_with_roman_numbers:
